@@ -1,6 +1,25 @@
 import { Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+function Button({ title, onPress, ...props }) {
+    return (         
+        <TouchableOpacity
+            style={{
+                backgroundColor: '#29981b',
+                padding: 10,
+                width: "100%",
+                marginTop: 16,
+                borderRadius: 10
+            }}
+            onPress={onPress}>
+            <Text style={{
+                textAlign: "center",
+                color: "#fff"
+            }}>{title}</Text>
+        </TouchableOpacity>    
+    )
+}
+
 function ListButtonItem({ title, onPress, position = "solo" }) {
     let borderStyle = {
         borderTopLeftRadius: 0,
@@ -12,16 +31,16 @@ function ListButtonItem({ title, onPress, position = "solo" }) {
         case "start":
             borderStyle.borderTopLeftRadius = 10;
             borderStyle.borderTopRightRadius = 10;
-            borderStyle.borderBottomColor = "#fff";
-            borderStyle.borderBottomWidth = 1;
+            borderStyle.borderBottomColor = "#b3b3b3";
+            borderStyle.borderBottomWidth = 0.5;
             break;
         case "end":
             borderStyle.borderBottomLeftRadius = 10;
             borderStyle.borderBottomRightRadius = 10;
             break;
         case "middle":
-            borderStyle.borderBottomColor = "#fff";
-            borderStyle.borderBottomWidth = 1;
+            borderStyle.borderBottomColor = "#b3b3b3";
+            borderStyle.borderBottomWidth = 0.5;
             break;
         default:
             borderStyle = {
@@ -33,7 +52,6 @@ function ListButtonItem({ title, onPress, position = "solo" }) {
     return (
         <TouchableOpacity
             style={{
-                alignitems: 'center',
                 backgroundColor: '#29981b',
                 padding: 10,
                 width: "100%",
@@ -52,24 +70,22 @@ function ListButtonItem({ title, onPress, position = "solo" }) {
     );
 };
 
-function ListButton({ icons }) {
-    if(icons.length > 1) {
-        let firstElem = icons.shift();
-        let lastElem = icons.pop();
+function ListButton({ data }) {
+    if(data.length > 1) {
         return (
             <>
-                <ListButtonItem title={firstElem.title} onPress={firstElem.onPress} position="start" />
-                {icons.map(elem => {
-                    <ListButtonItem title={firstElem.title} onPress={firstElem.onPress} position="middle" />
-                })};
-                <ListButtonItem title={lastElem.title} onPress={lastElem.onPress} position="end"/>
+                {data.map(elem => 
+                    <ListButtonItem key={data.indexOf(elem)} title={elem.title} onPress={elem.onPress} position={data.indexOf(elem) == 0 ? "start" : data.indexOf(elem) == data.length-1 ? "end" : "middle"} />
+                )}
             </>
         );
     } else {
-        return <ListButtonItem title={icons[0].title} onPress={icons[0].onpRESS}></ListButtonItem>
+        return <ListButtonItem title={data[0].title} onPress={data[0].onPress}></ListButtonItem>
     }
 }
 
 export {
-    ListButtonItem
+    Button,
+    ListButtonItem,
+    ListButton
 };
