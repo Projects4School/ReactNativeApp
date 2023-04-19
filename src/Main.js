@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
@@ -9,7 +8,8 @@ import { MD3DarkTheme as DefaultTheme, adaptNavigationTheme } from 'react-native
 
 import HomeScreen from './screens/Home';
 import SettingsScreen from './screens/Settings';
-import SaveFile from './screens/Home/SaveFile';
+import SaveFileScreen from './screens/Home/SaveFile';
+import CameraScreen from './screens/Home/Camera';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,8 +27,11 @@ function HomeStack() {
             <Stack.Screen name="Home" component={HomeScreen}
                 options={{ title: 'Home Page' }}
             />
-            <Stack.Screen name="SaveFile" component={SaveFile}
+            <Stack.Screen name="SaveFile" component={SaveFileScreen}
                 options={{ title: 'Save File' }}
+            />
+            <Stack.Screen name="Camera" component={CameraScreen}
+                options={{ title: 'Camera' }}
             />
         </Stack.Navigator>
     );

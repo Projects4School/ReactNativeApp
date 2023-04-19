@@ -10,6 +10,9 @@ export default function HomeScreen({navigation}){
                 <ListButtonItem title="Write and save file" onPress={() =>
                     navigation.navigate('HomeStack', { screen: 'SaveFile' })
                 } />
+                <ListButtonItem title="Use camera" onPress={() =>
+                    navigation.navigate('HomeStack', { screen: 'Camera' })
+                } />
             </View>
         </SafeAreaView>
     );
