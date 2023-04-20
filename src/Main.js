@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -10,6 +9,7 @@ import HomeScreen from './screens/Home';
 import SettingsScreen from './screens/Settings';
 import SaveFileScreen from './screens/Home/SaveFile';
 import CameraScreen from './screens/Home/Camera';
+import AuthScreen from './screens/Home/Auth';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,6 +32,9 @@ function HomeStack() {
             />
             <Stack.Screen name="Camera" component={CameraScreen}
                 options={{ title: 'Camera' }}
+            />
+            <Stack.Screen name="Auth" component={AuthScreen}
+                options={{ title: 'Auth' }}
             />
         </Stack.Navigator>
     );
