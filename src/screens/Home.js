@@ -7,8 +7,8 @@ export default function HomeScreen({navigation}){
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{ flex: 1, padding: 16 }}>
                 <Headline>Welcome to React Native Project</Headline>
-                <ListButtonItem title="Write and save file" onPress={() =>
-                    navigation.navigate('HomeStack', { screen: 'SaveFile' })
+                <ListButtonItem title="Todo list" onPress={() =>
+                    navigation.navigate('HomeStack', { screen: 'TodoList' })
                 } />
                 <ListButtonItem title="Test camera" onPress={() =>
                     navigation.navigate('HomeStack', { screen: 'Camera' })

@@ -7,7 +7,7 @@ import { MD3DarkTheme as DefaultTheme, adaptNavigationTheme } from 'react-native
 
 import HomeScreen from './screens/Home';
 import SettingsScreen from './screens/Settings';
-import SaveFileScreen from './screens/Home/SaveFile';
+import TodoListScreen from './screens/Home/TodoList';
 import CameraScreen from './screens/Home/Camera';
 import AuthScreen from './screens/Home/Auth';
 
@@ -27,8 +27,8 @@ function HomeStack() {
             <Stack.Screen name="Home" component={HomeScreen}
                 options={{ title: 'Home Page' }}
             />
-            <Stack.Screen name="SaveFile" component={SaveFileScreen}
-                options={{ title: 'Save File' }}
+            <Stack.Screen name="TodoList" component={TodoListScreen}
+                options={{ title: 'Todo List' }}
             />
             <Stack.Screen name="Camera" component={CameraScreen}
                 options={{ title: 'Camera' }}

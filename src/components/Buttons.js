@@ -66,7 +66,7 @@ function ListButtonItem({ title, onPress, position = "solo" }) {
                 color: "#fff"
             }}>{title}</Text>
             <MaterialCommunityIcons name="chevron-right" color={"#fff"} size={24} />
-        </TouchableOpacity>        
+        </TouchableOpacity>
     );
 };
 
